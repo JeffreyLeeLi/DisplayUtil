@@ -36,10 +36,7 @@ public class DisplayUtil {
 	}
 
 	private static BufferedImage imageFrom(Mat mat) {
-		int w = mat.cols();
-		int h = mat.rows();
-
-		if (w * h <= 0) {
+		if (mat.empty()) {
 			return null;
 		}
 
@@ -48,6 +45,9 @@ public class DisplayUtil {
 		if (mat.channels() > 1) {
 			type = BufferedImage.TYPE_3BYTE_BGR;
 		}
+
+		int w = mat.cols();
+		int h = mat.rows();
 
 		int n = mat.channels() * w * h;
 		byte[] src = new byte[n];
