@@ -31,26 +31,26 @@ public class DisplayUtil {
 		frame.setVisible(true);
 	}
 
-	private static BufferedImage imageFrom(Mat srcImg) {
+	private static BufferedImage imageFrom(Mat mat) {
 		int type = BufferedImage.TYPE_BYTE_GRAY;
 
-		if (srcImg.channels() > 1) {
+		if (mat.channels() > 1) {
 			type = BufferedImage.TYPE_3BYTE_BGR;
 		}
 
-		int w = srcImg.cols();
-		int h = srcImg.rows();
+		int w = mat.cols();
+		int h = mat.rows();
 
-		int n = srcImg.channels() * w * h;
+		int n = mat.channels() * w * h;
 		byte[] src = new byte[n];
 
-		srcImg.get(0, 0, src); // get all the pixels
+		mat.get(0, 0, src); // get all the pixels
 
-		BufferedImage dstImg = new BufferedImage(w, h, type);
-		final byte[] dst = ((DataBufferByte) dstImg.getRaster().getDataBuffer()).getData();
+		BufferedImage image = new BufferedImage(w, h, type);
+		final byte[] dst = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
 
 		System.arraycopy(src, 0, dst, 0, src.length);
 
-		return dstImg;
+		return image;
 	}
 }
