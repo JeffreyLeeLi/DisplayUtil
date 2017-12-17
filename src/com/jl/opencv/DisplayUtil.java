@@ -42,7 +42,7 @@ public class DisplayUtil {
 
 		int type = BufferedImage.TYPE_BYTE_GRAY;
 
-		if (mat.channels() > 1) {
+		if (mat.channels() == 3) {
 			type = BufferedImage.TYPE_3BYTE_BGR;
 		}
 
