@@ -11,10 +11,12 @@ import org.opencv.core.Mat;
 
 public class DisplayUtil {
 	public static void imshow(String title, Mat img) {
+		// Image
+		BufferedImage image = imageFrom(img);
 
 		// Icon
 		ImageIcon imageIcon = new ImageIcon();
-		imageIcon.setImage(imageFrom(img));
+		imageIcon.setImage(image);
 
 		// Label
 		JLabel label = new JLabel();
