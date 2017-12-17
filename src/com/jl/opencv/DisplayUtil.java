@@ -16,7 +16,9 @@ public class DisplayUtil {
 
 		// Icon
 		ImageIcon imageIcon = new ImageIcon();
-		imageIcon.setImage(image);
+		if (image != null) {
+			imageIcon.setImage(image);
+		}
 
 		// Label
 		JLabel label = new JLabel();
