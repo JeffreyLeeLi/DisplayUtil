@@ -42,15 +42,16 @@ public class DisplayUtil {
 
 		int type = BufferedImage.TYPE_BYTE_GRAY;
 
-		if (mat.channels() == 3) {
+		int n = mat.channels();
+		if (n == 3) {
 			type = BufferedImage.TYPE_3BYTE_BGR;
 		}
 
 		int w = mat.cols();
 		int h = mat.rows();
 
-		int n = mat.channels() * w * h;
-		byte[] matBytes = new byte[n];
+		int m = n * w * h;
+		byte[] matBytes = new byte[m];
 
 		mat.get(0, 0, matBytes); // get all the pixels
 
