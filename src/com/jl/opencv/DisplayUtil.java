@@ -50,14 +50,14 @@ public class DisplayUtil {
 		int h = mat.rows();
 
 		int n = mat.channels() * w * h;
-		byte[] src = new byte[n];
+		byte[] matBytes = new byte[n];
 
-		mat.get(0, 0, src); // get all the pixels
+		mat.get(0, 0, matBytes); // get all the pixels
 
 		BufferedImage image = new BufferedImage(w, h, type);
-		final byte[] dst = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+		final byte[] imageBytes = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
 
-		System.arraycopy(src, 0, dst, 0, src.length);
+		System.arraycopy(matBytes, 0, imageBytes, 0, matBytes.length);
 
 		return image;
 	}
