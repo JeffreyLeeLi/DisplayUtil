@@ -14,7 +14,7 @@ public class DisplayUtil {
 
 		// Icon
 		ImageIcon imageIcon = new ImageIcon();
-		imageIcon.setImage(convert(img));
+		imageIcon.setImage(imageFrom(img));
 
 		// Label
 		JLabel label = new JLabel();
@@ -31,7 +31,7 @@ public class DisplayUtil {
 		frame.setVisible(true);
 	}
 
-	private static BufferedImage convert(Mat srcImg) {
+	private static BufferedImage imageFrom(Mat srcImg) {
 		int type = BufferedImage.TYPE_BYTE_GRAY;
 
 		if (srcImg.channels() > 1) {
